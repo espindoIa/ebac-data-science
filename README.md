@@ -42,7 +42,16 @@ Abra o notebook a partir da raiz do reposit�rio e execute as c�lulas em orde
 - As depend�ncias acima foram identificadas nos imports; n�o h� vers�es fixadas nem ambiente reproduz�vel validado.
 - O CSV ausente impede executar o m�dulo 17 apenas com os arquivos do reposit�rio.
 - As sa�das salvas s�o resultados hist�ricos. Esta revis�o documental n�o executou os notebooks nem confirmou seus resultados.
-- N�o h� su�te automatizada ou comandos de build. Para validar uma execu��o, reinicie o kernel, execute todas as c�lulas em ordem e confira os resultados.
 - Antes de compartilhar notebooks, revise c�lulas, sa�das e metadados para remover credenciais, caminhos locais e dados identific�veis. Revise tamb�m os direitos de redistribui��o das bases e materiais de terceiros.
 
 A estrutura � simples: tr�s notebooks, o CSV de churn e este README na raiz. Os enunciados e refer�ncias educacionais existentes foram preservados.
+
+## Testes dos notebooks
+
+Com pandas, Matplotlib e seaborn instalados, execute na raiz:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Os testes executam todas as celulas dos modulos 14 e 15 com o CSV incluido, sem salvar saidas. Conferem a preservacao do target churn e os rotulos das faixas de tempo. O modulo 17 permanece fora da suite porque sua base nao esta incluida.
